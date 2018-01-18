@@ -14,6 +14,7 @@ class ContractAPI extends Component {
     const MyContract = window.web3.eth.contract(contractData.ABI);
 
     if(props.index){
+      // if it's match_detail page
       this.state = {
         ContractInstance: MyContract.at(contractData.address),
         UpcomingMatches:[],
@@ -29,6 +30,7 @@ class ContractAPI extends Component {
       this.getBets(props.index);
       this.getUserBets(props.index,window.web3.eth.coinbase);
     } else {
+      // if it's homepage
       this.state = {
         ContractInstance: MyContract.at(contractData.address),
         UpcomingMatches:[],
@@ -38,7 +40,7 @@ class ContractAPI extends Component {
       };  
     }
 
-    // fetch match data 
+    // fetch match data (upcoming and past)
     this.getUpcomingMatch();
     this.getPastMatch();
 

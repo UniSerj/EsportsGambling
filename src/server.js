@@ -5,12 +5,12 @@ var Web3 = require('web3');
 var contract = require('truffle-contract');
 var fetch = require('node-fetch');
 
-var job = new cron.CronJob('00 57 15 * * 0-6', function() {
+var job = new cron.CronJob('00 00 12 * * 0-6', function() {
   /*
-   * Runs every weekday (Monday through Friday)
-   * at **:**:** AM. It does not run on Saturday
-   * or Sunday.
+   * Runs every day
+   * at 12:00:00 AM.
    */
+
    // init contract
    const MyContract = contract({
     abi: contractData.ABI
@@ -22,6 +22,7 @@ var job = new cron.CronJob('00 57 15 * * 0-6', function() {
       var web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'))
     }
 
+    // set test account
     web3.eth.getAccounts((error, accounts) => {
       if (error) {
         console.log(error)
@@ -30,32 +31,21 @@ var job = new cron.CronJob('00 57 15 * * 0-6', function() {
       web3.eth.defaultAccount = accounts[0];
     });
 
+    // set provider
     MyContract.setProvider(web3.currentProvider);
 
-    // create contract sand call function
+    // create contract and call function
     var gamblingContract = MyContract.at(contractData.address);
 
-    // gamblingContract.insertBet(21695,'0x5CF310E53F2530b4d853dE991869cA9e4B3bF3aa',1516242750,300,'KT',{gas:3000000})
-    //   .then((result) => {
-    //     console.log(result);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    // gamblingContract.insertBet(21695,'0x240daE20c1Fe6D7f976f9BD2b0c8cdAA2795380a',1516242751,100,'AFS',{gas:3000000})
-    //   .then((result) => {
-    //     console.log(result);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
+    // call API and get the data
     fetch("https://api.pandascore.co/matches/past?token="+contractData.token)
       .then(function(response){
         return response.json();
       })
       .then(function(data){
         var matches = [];
+
+        // Only need the match info from yesterday to now
         var time = new Date();
         time.setDate(time.getDate()-1);
         timestring = time.toISOString();
@@ -66,6 +56,7 @@ var job = new cron.CronJob('00 57 15 * * 0-6', function() {
           }
         }
 
+        // Make transaction automatically for all matches if there is a winner
         for (var i = 0; i<matches.length; i ++){
           if(matches[i]['winner']){
             console.log(parseInt(matches[i]['id']),matches[i]['winner']['acronym']);
@@ -86,9 +77,5 @@ job.start();
 
 const app = express();
 const port = process.env.PORT || 8080;
-
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
-});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
