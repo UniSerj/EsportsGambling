@@ -1,5 +1,6 @@
 {
 	"address":"",
+  "token":"",
 	"ABI":[
   {
     "constant": true,

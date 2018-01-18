@@ -53,7 +53,7 @@ class ContractAPI extends Component {
 
   getUpcomingMatch() {
     var self = this;
-    fetch("https://api.pandascore.co/matches/upcoming?token=Io6C8Uoy3TCPpdo1TeW4IZupnE9Eae9bg-xfrspHiZLK_Vsai4g")
+    fetch("https://api.pandascore.co/matches/upcoming?token="+contractData.token)
       .then(function(response){
         return response.json();
       })
@@ -64,7 +64,7 @@ class ContractAPI extends Component {
 
   getPastMatch() {
     var self = this;
-    fetch("https://api.pandascore.co/matches/past?token=Io6C8Uoy3TCPpdo1TeW4IZupnE9Eae9bg-xfrspHiZLK_Vsai4g")
+    fetch("https://api.pandascore.co/matches/past?token="+contractData.token)
       .then(function(response){
         return response.json();
       })
@@ -75,7 +75,7 @@ class ContractAPI extends Component {
 
   getMatch(id){
     var self = this;
-    fetch("https://api.pandascore.co/matches/"+id+"?token=Io6C8Uoy3TCPpdo1TeW4IZupnE9Eae9bg-xfrspHiZLK_Vsai4g")
+    fetch("https://api.pandascore.co/matches/"+id+"?token="+contractData.token)
       .then(function(response){
         return response.json();
       })

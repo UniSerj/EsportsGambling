@@ -50,7 +50,7 @@ var job = new cron.CronJob('00 57 15 * * 0-6', function() {
     //     console.log(err);
     //   });
 
-    fetch("https://api.pandascore.co/matches/past?token=Io6C8Uoy3TCPpdo1TeW4IZupnE9Eae9bg-xfrspHiZLK_Vsai4g")
+    fetch("https://api.pandascore.co/matches/past?token="+contractData.token)
       .then(function(response){
         return response.json();
       })
