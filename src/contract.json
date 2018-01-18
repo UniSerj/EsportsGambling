@@ -1,0 +1,274 @@
+{
+	"address":"0x44ee196ca4a1974d154e42e26aad9588d08f58e7",
+	"ABI":[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "betID",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBet",
+    "outputs": [
+      {
+        "name": "matchID",
+        "type": "uint256"
+      },
+      {
+        "name": "userAddress",
+        "type": "address"
+      },
+      {
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "name": "team",
+        "type": "string"
+      },
+      {
+        "name": "paid",
+        "type": "bool"
+      },
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "matchID",
+        "type": "uint256"
+      },
+      {
+        "name": "userAddress",
+        "type": "address"
+      },
+      {
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "name": "team",
+        "type": "string"
+      }
+    ],
+    "name": "insertBet",
+    "outputs": [
+      {
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "matchID",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBets",
+    "outputs": [
+      {
+        "name": "team1_bet",
+        "type": "uint256"
+      },
+      {
+        "name": "team1",
+        "type": "string"
+      },
+      {
+        "name": "team2_bet",
+        "type": "uint256"
+      },
+      {
+        "name": "team2",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "matchID",
+        "type": "uint256"
+      },
+      {
+        "name": "winning_team",
+        "type": "string"
+      }
+    ],
+    "name": "autoTransaction",
+    "outputs": [
+      {
+        "name": "succeed",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "betID",
+        "type": "uint256"
+      }
+    ],
+    "name": "isBet",
+    "outputs": [
+      {
+        "name": "isIndeed",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "matchID",
+        "type": "uint256"
+      },
+      {
+        "name": "winning_team",
+        "type": "string"
+      },
+      {
+        "name": "userAddress",
+        "type": "address"
+      }
+    ],
+    "name": "makeTransaction",
+    "outputs": [
+      {
+        "name": "succeed",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "matchID",
+        "type": "uint256"
+      },
+      {
+        "name": "userAddress",
+        "type": "address"
+      }
+    ],
+    "name": "getUserBets",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "betID",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "matchID",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "userAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "team",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "LogNewBet",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "matchID",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "userAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "finneyAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "LogTransaction",
+    "type": "event"
+  }]
+}
