@@ -15,14 +15,14 @@ A app based on solidity for users to bet on esports game.
 
 # User Guide
 ## Contents
-- [Getting started on Homepage] (#getting started on homepage)
-- [Open bets Detail page] (#open bets detail page)
-- [Closed bets Detail page] (#closed bets detail page)
-- [Make a bet] (#make a bet)
-- [Get the balance] (#get the balance)
+- [Getting started on Homepage](#getting started on homepage)
+- [Open bets Detail page](#open bets detail page)
+- [Closed bets Detail page](#closed bets detail page)
+- [Make a bet](#make a bet)
+- [Get the balance](#get the balance)
 
 ## <a name="getting started on homepage"></a>Getting started on Homepage
-* Step 1. Enter [http://localhost:3000/] (http://localhost:3000/).
+* Step 1. Enter [http://localhost:3000/](http://localhost:3000/).
 * Step 2. The whole Homepage can be divided into two parts: Open Bets and Closed Bets. Each of them is a table that includes 5 attributes:  
 	- Match ID: The ID of the match
 	- Game Name: It can be LoL, OverWatch and Dota 2
@@ -34,14 +34,14 @@ A app based on solidity for users to bet on esports game.
 * Step 1. Enter the link under **Match Link** of **Open Bets** table.
 * Step 2. On Open bets detail page, you can have a view of the match ID, game, name, match info and the match time on top of the page.
 * Step 3. There is progress bar presenting the bet status: how much has been already bet on team 1 and team 2.
-* Step 4. You can make a bet on this page. The detail will be covered in [Make a bet] (#make a bet).
+* Step 4. You can make a bet on this page. The detail will be covered in [Make a bet](#make a bet).
 * Step 5. You can have a view of all the bets you’ve made at the bottom of the page.
 
 ## <a name="closed bets detail page"></a>Closed bets Detail page
 * Step 1. Enter the link under **Match Link** of **Closed Bets** table.
 * Step 2. On Open bets detail page, you can have a view of the match ID, game, name, match info and the match time on top of the page.
 * Step 3. There is progress bar presenting the bet status: how much has been already bet on team 1 and team 2.
-* Step 4. You can Get the balance back if you’ve won. The detail will be covered in [Get the balance] (#get the balance).
+* Step 4. You can Get the balance back if you’ve won. The detail will be covered in [Get the balance](#get the balance).
 * Step 5. You can have a view of all the bets you’ve made at the bottom of the page.
 
 ## <a name="make a bet"></a>Make a bet
